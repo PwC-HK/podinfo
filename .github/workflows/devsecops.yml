@@ -1,0 +1,15 @@
+# DevSecOps pipeline onboarding — that's all a project needs.
+name: devsecops
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pipeline:
+    uses: PwC-HK/platform-workflows/.github/workflows/ci-security.yml@main
+    with:
+      image-name: podinfo
+      codeql-language: go
+    secrets: inherit
